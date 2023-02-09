@@ -2,7 +2,7 @@
 
 ---
 
-## Test project github link: https://github.com/AliEAKarimi/react-shopping-cart/blob/main/tests/test.py
+## Test file github link: https://github.com/AliEAKarimi/react-shopping-cart/blob/main/tests/test.py
 
 ---
 
