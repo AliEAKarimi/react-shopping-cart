@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 from selenium.webdriver.common.by import By
 
-class TypescriptReactShoppingCartTest(unittest.TestCase):
+class ShoppingCartTest(unittest.TestCase):
     def setUp(self):
         # create a new Chrome session
         self.driver = webdriver.Chrome()
@@ -16,12 +16,11 @@ class TypescriptReactShoppingCartTest(unittest.TestCase):
         self.driver.delete_all_cookies()
         # navigate to the application home page
         self.driver.get("http://localhost:3000")
-        # self.wait = WebDriverWait(self.driver, 10)
 
     def tearDown(self):
         # close the browser window
         self.driver.quit()
-
+    
     # 1. Title test: Verify that the title of the page is correct
     def test_title(self):
         time.sleep(2)
