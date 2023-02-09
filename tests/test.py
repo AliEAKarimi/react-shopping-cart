@@ -5,46 +5,43 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
 class TypescriptReactShoppingCartTest(unittest.TestCase):
     def setUp(self):
-      # create a new Chrome session
-      self.driver = webdriver.Chrome()
-      # maximize the window size
-      self.driver.maximize_window()
-      # delete all cookies
-      self.driver.delete_all_cookies()
-      # navigate to the application home page
-      self.driver.get("http://localhost:3000")
-      # self.wait = WebDriverWait(self.driver, 10)
+        # create a new Chrome session
+        self.driver = webdriver.Chrome()
+        # maximize the window size
+        self.driver.maximize_window()
+        # delete all cookies
+        self.driver.delete_all_cookies()
+        # navigate to the application home page
+        self.driver.get("http://localhost:3000")
+        # self.wait = WebDriverWait(self.driver, 10)
 
     def tearDown(self):
-      # close the browser window
-      self.driver.quit()
+        # close the browser window
+        self.driver.quit()
 
     # 1. Title test: Verify that the title of the page is correct
     def test_title(self):
-      time.sleep(2)
-      self.title = self.driver.title
-      self.assertEqual(self.title, "Typescript React Shopping cart")
-
-
+        time.sleep(2)
+        self.title = self.driver.title
+        self.assertEqual(self.title, "Typescript React Shopping cart")
+    
     # 2. Product test: Verify that the products are displayed correctly
     def test_display_16_products_correctly(self):
-      time.sleep(2)
-      # Find all product cards on the page
-      self.product_cards = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'product-card')]")
-      # Verify that there are 16 products on the page
-      assert len(self.product_cards) == 16
-      # Verify that each product card has an image, title, price and add to cart button
-      for product_card in self.product_cards:
-          assert product_card.find_element(By.XPATH, "//*[contains(@id, 'product-image')]")
-          assert product_card.find_element(By.XPATH, "//*[contains(@id, 'product-title')]")
-          assert product_card.find_element(By.XPATH, "//*[contains(@id, 'product-price')]")
-          assert product_card.find_element(By.XPATH, "//*[contains(@id, 'add-to-cart-button')]")
-
+        time.sleep(2)
+        # Find all product cards on the page
+        self.product_cards = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'product-card')]")
+        # Verify that there are 16 products on the page
+        assert len(self.product_cards) == 16
+        # Verify that each product card has an image, title, price and add to cart button
+        for product_card in self.product_cards:
+            assert product_card.find_element(By.XPATH, "//*[contains(@id, 'product-image')]")
+            assert product_card.find_element(By.XPATH, "//*[contains(@id, 'product-title')]")
+            assert product_card.find_element(By.XPATH, "//*[contains(@id, 'product-price')]")
+            assert product_card.find_element(By.XPATH, "//*[contains(@id, 'add-to-cart-button')]")
+    
     # 3. Empty cart test: Verify that the cart is empty when the page is loaded
     def test_empty_cart(self):
         time.sleep(2)
@@ -70,14 +67,14 @@ class TypescriptReactShoppingCartTest(unittest.TestCase):
         # Verify that the cart icon shows 1 item
         cart_quantity = self.driver.find_element(By.XPATH, "//*[contains(@id, 'cart-quantity')]")
         assert cart_quantity.text == '1'
-
+    
     # 5. Filter by size test: Verify that the products are filtered by size
     def test_filter_products_by_size(self):
-      checkbox = self.driver.find_element(By.XPATH, "//*[contains(@id, 'XXL')]")
-      checkbox.click()
-      time.sleep(2)
-      product_cards = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'product-card')]")
-      assert len(product_cards) == 4
+        checkbox = self.driver.find_element(By.XPATH, "//*[contains(@id, 'XXL')]")
+        checkbox.click()
+        time.sleep(2)
+        product_cards = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'product-card')]")
+        assert len(product_cards) == 4
 
     # 6. Cart list test: Verify that the cart list displays all products added to the cart
     def test_cart_list(self):
@@ -93,7 +90,6 @@ class TypescriptReactShoppingCartTest(unittest.TestCase):
         ).click()
         time.sleep(2)
         # Verify that the cart list displays the product added to the cart
-        # cartProducts = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, "//*[contains(@class, 'cart-product')]")))
         cartProducts = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'cart-product')]")
         assert len(cartProducts) == 1
         # Verify that the product name is displayed correctly
