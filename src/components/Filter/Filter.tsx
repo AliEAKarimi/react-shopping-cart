@@ -22,7 +22,11 @@ const Filter = () => {
   };
 
   const createCheckbox = (label: string) => (
-    <S.Checkbox label={label} handleOnChange={toggleCheckbox} key={label} />
+    <S.Checkbox
+      label={label}
+      handleOnChange={toggleCheckbox}
+      key={label}
+    />
   );
 
   const createCheckboxes = () => availableSizes.map(createCheckbox);

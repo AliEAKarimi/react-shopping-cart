@@ -27,24 +27,28 @@ const CartProduct = ({ product }: IProps) => {
   const handleDecreaseProductQuantity = () => decreaseProductQuantity(product);
 
   return (
-    <S.Container>
+    <S.Container className="cart-product">
       <S.DeleteButton
         onClick={handleRemoveProduct}
         title="remove product from cart"
+        id='remove-product'
       />
       <S.Image
         src={require(`static/products/${sku}-1-cart.webp`)}
         alt={title}
       />
       <S.Details>
-        <S.Title>{title}</S.Title>
+        <S.Title id="cart-product-title">{title}</S.Title>
         <S.Desc>
           {`${availableSizes[0]} | ${style}`} <br />
           Quantity: {quantity}
         </S.Desc>
       </S.Details>
       <S.Price>
-        <p>{`${currencyFormat}  ${formatPrice(price, currencyId)}`}</p>
+        <p id="cart-product-price">{`${currencyFormat}  ${formatPrice(
+          price,
+          currencyId
+        )}`}</p>
         <div>
           <S.ChangeQuantity
             onClick={handleDecreaseProductQuantity}

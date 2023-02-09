@@ -53,11 +53,16 @@ const Product = ({ product }: IProps) => {
   };
 
   return (
-    <S.Container onKeyUp={handleAddProductWhenEnter} sku={sku} tabIndex={1}>
+    <S.Container
+      onKeyUp={handleAddProductWhenEnter}
+      sku={sku}
+      tabIndex={1}
+      className="product-card"
+    >
       {isFreeShipping && <S.Stopper>Free shipping</S.Stopper>}
-      <S.Image alt={title} />
-      <S.Title>{title}</S.Title>
-      <S.Price>
+      <S.Image alt={title} id="product-image" />
+      <S.Title id="product-title">{title}</S.Title>
+      <S.Price id="product-price">
         <S.Val>
           <small>{currencyFormat}</small>
           <b>{formattedPrice.substring(0, formattedPrice.length - 3)}</b>
@@ -65,7 +70,11 @@ const Product = ({ product }: IProps) => {
         </S.Val>
         {productInstallment}
       </S.Price>
-      <S.BuyButton onClick={handleAddProduct} tabIndex={-1}>
+      <S.BuyButton
+        onClick={handleAddProduct}
+        tabIndex={-1}
+        id="add-to-cart-button"
+      >
         Add to cart
       </S.BuyButton>
     </S.Container>

@@ -26,12 +26,15 @@ const Cart = () => {
 
   return (
     <S.Container isOpen={isOpen}>
-      <S.CartButton onClick={handleToggleCart(isOpen)}>
+      <S.CartButton onClick={handleToggleCart(isOpen)} id="open-cart-button">
         {isOpen ? (
           <span>X</span>
         ) : (
           <S.CartIcon>
-            <S.CartQuantity title="Products in cart quantity">
+            <S.CartQuantity
+              title="Products in cart quantity"
+              id="cart-quantity"
+            >
               {total.productQuantity}
             </S.CartQuantity>
           </S.CartIcon>
@@ -69,7 +72,11 @@ const Cart = () => {
                 ) : null}
               </S.SubPriceInstallment>
             </S.SubPrice>
-            <S.CheckoutButton onClick={handleCheckout} autoFocus>
+            <S.CheckoutButton
+              onClick={handleCheckout}
+              id="checkout-button"
+              autoFocus
+            >
               Checkout
             </S.CheckoutButton>
           </S.CartFooter>

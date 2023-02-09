@@ -16,7 +16,7 @@ const Checkbox = ({ className, label, handleOnChange }: IProps) => {
 
   return (
     <div className={className}>
-      <label>
+      <label id={label}>
         <input
           type="checkbox"
           value={label}
