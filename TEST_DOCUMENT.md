@@ -2,6 +2,12 @@
 
 ---
 
+## Project github link: https://github.com/AliEAKarimi/react-shopping-cart
+
+---
+
+## Test description
+
 1. Title test
 
 - this test verifies that the title of the page is correct or not. The test is successful if the title of the page is "Typescript React Shopping cart". The test is unsuccessful if the title of the page is not "Typescript React Shopping cart".
