@@ -51,7 +51,7 @@ def tearDown(self):
 
 We have 8 test methods in this project. Each test method performs a specific test.
 
-### 1. test_title(self) method
+### 1. test_title(self) method (Reza Firouzi)
 
 This test verifies that the title of the page is correct or not. The test is successful if the title of the page is "Typescript React Shopping cart". The test is unsuccessful if the title of the page is not "Typescript React Shopping cart".
 
@@ -62,7 +62,7 @@ def test_title(self):
     self.assertEqual(self.title, "Typescript React Shopping cart")
 ```
 
-### 2. test_display_16_products_correctly(self) method
+### 2. test_display_16_products_correctly(self) method (Reza Firouzi)
 
 This test verifies that the products are displayed correctly. It verifies that there are 16 products on the page and that each product card has an image, title, price and add to cart button. The test is successful if all the products are displayed correctly. The test is unsuccessful if any of the products are not displayed correctly.
 
@@ -81,7 +81,7 @@ def test_display_16_products_correctly(self):
         assert product_card.find_element(By.XPATH, "//*[contains(@id, 'add-to-cart-button')]")
 ```
 
-### 3. test_empty_cart(self) method
+### 3. test_empty_cart(self) method (Reza Firouzi)
 
 This test verifies that the cart is empty when the page is loaded by checking that the cart icon shows 0 items. The test is successful if the cart icon shows 0 items. The test is unsuccessful if the cart icon shows any other number than 0.
 
@@ -93,7 +93,7 @@ def test_empty_cart(self):
     self.assertEqual(cart_quantity.text, '0')
 ```
 
-### 4. test_add_product_to_cart(self) method
+### 4. test_add_product_to_cart(self) method (Reza Firouzi)
 
 This test verifies that the product is added to the cart by clicking the Add to Cart button and checking that the cart icon shows 1 item. The test is successful if the cart icon shows 1 item. The test is unsuccessful if the cart icon shows any other number than 1.
 
@@ -117,7 +117,7 @@ def test_add_product_to_cart(self):
     assert cart_quantity.text == '1'
 ```
 
-### 5. test_filter_products_by_size(self) method
+### 5. test_filter_products_by_size(self) method (Ali Karimi)
 
 This test verifies that the products are filtered by size by clicking the checkbox of the size XXL and checking that only 4 products are displayed. The test is successful if only 4 products are displayed. The test is unsuccessful if any other number of products is displayed.
 
@@ -130,7 +130,7 @@ def test_filter_products_by_size(self):
     assert len(product_cards) == 4
 ```
 
-### 6. test_cart_list(self) method
+### 6. test_cart_list(self) method (Ali Karimi)
 
 This test verifies that the cart list displays all products added to the cart by clicking the Add to Cart button and checking that the cart list displays the product added to the cart with correct information. The test is successful if the cart list displays the product added to the cart. The test is unsuccessful if the cart list does not display the product added to the cart.
 
@@ -161,7 +161,7 @@ def test_cart_list(self):
     time.sleep(2)
 ```
 
-### 7. test_checkout_button_alert_message(self) method
+### 7. test_checkout_button_alert_message(self) method (Ali Karimi)
 
 This test verifies that the checkout button displays an alert message when the cart is empty by clicking the checkout button and checking that an alert message is displayed and be correct. The test is successful if an alert message is displayed with correct message. The test is unsuccessful if an alert message is not displayed or displayed with incorrect message.
 
@@ -181,7 +181,7 @@ def test_checkout_button_alert_message(self):
     time.sleep(2)
 ```
 
-### 8. test_checkout_button_redirect(self) method
+### 8. test_checkout_button_redirect(self) method (Ali Karimi)
 
 This test verifies that the link to the github star page is working by clicking the Star link and checking that the github page is displayed. The test is successful if the github page is displayed. The test is unsuccessful if the github page is not displayed.
 
@@ -193,3 +193,8 @@ def test_github_link(self):
     time.sleep(2)
     # Verify that the github page is displayed
 ```
+
+## Authors
+
+- [Reza Firouzi-9812762463]
+- [Ali Karimi-9812762678]
